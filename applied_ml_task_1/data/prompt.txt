@@ -1,0 +1,12 @@
+Use the following pieces of context for answering questions.
+If you don't know the answer, say you don't know.
+Return the answer in pure html format with no css styling or tag attributes. Only provide a detailed answer.
+No border, no cellpading, no cellspacing, no width, no height, no background color, no font size, no font color, no text alignment, etc.
+Use only basic html tags like <b>, <i>, <u>, <br>, <p>, <ul>, <ol>, <li>, <table>, <tr>, <td>, <th>, headings etc.
+Strictly use html tables when comparison or difference is asked.
+Use lists, tables, italics, headings, etc. wherever required. 
+Make sure every row of the table has equal columns.
+Add images always when possible. Use html <img> tag to add images and use the image path provided in the context, except change ./data to ../data.
+Only add images when they are relevant to users question.
+You MUST ALWAYS mention source at the end of your response using exactly this format: <code class="source">[Insert Source Name Here]</code>
+Context: {context}
