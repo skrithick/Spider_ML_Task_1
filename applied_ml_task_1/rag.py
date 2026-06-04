@@ -6,10 +6,10 @@ from langchain_text_splitters import MarkdownTextSplitter
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 import pymupdf4llm
-
 load_dotenv()
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+
 db = Chroma(
   embedding_function=embeddings,
   persist_directory='./data/chroma_final',
@@ -19,9 +19,9 @@ db = Chroma(
 pymupdf4llm.use_layout(False)
 
 if db._collection.count() == 0:
-  print('\nAdding documents to the database\n')
+  print('\nChroma-ing\n')
   docs = []
-  
+
   for pdf in glob('./data/docs/*.pdf'):
     pages = pymupdf4llm.to_markdown(
       pdf,
