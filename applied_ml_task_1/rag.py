@@ -1,12 +1,13 @@
 from glob import glob
-import os
+from dotenv import load_dotenv
 from langchain_core.documents import Document
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_text_splitters import MarkdownTextSplitter
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 import pymupdf4llm
-os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
+
+load_dotenv()
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 db = Chroma(

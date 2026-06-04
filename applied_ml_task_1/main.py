@@ -1,9 +1,14 @@
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+
 from rag import query
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 app = FastAPI()
+app.mount("/frontend", StaticFiles(directory="frontend"))
+app.mount("/data", StaticFiles(directory="data"))
 
 app.add_middleware(
     CORSMiddleware,
@@ -12,7 +17,7 @@ app.add_middleware(
 
 @app.get('/')
 def root():
-  return { 'message': 'API functional.' }
+  return FileResponse('frontend/index.html')
 
 @app.get('/query')
 def querypage(query_content: str):

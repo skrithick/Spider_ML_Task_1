@@ -2,6 +2,8 @@ let state = {
   isLoading: false
 }
 
+console.log("Hi");
+
 function toggleLoader() {
   const loader = document.getElementById('loader');
   loader.classList.toggle('hidden');
